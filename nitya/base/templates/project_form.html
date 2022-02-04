@@ -1,0 +1,11 @@
+{% extends 'index.html' %} {% block content %}
+<h1>projects</h1>
+<a href="{% url 'projects'%}">Back to Home</a>
+<a href="{% url 'create-form' %}">Add project</a>
+<h1>project form</h1>
+<hr />
+<form action="" method="POST">
+  {% csrf_token %} {{form.as_p}}
+  <input type="submit" />
+</form>
+{% endblock content %}

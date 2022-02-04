@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" />
+  </head>
+  <body>
+    {% block content %}
+    <h1>projects</h1>
+    <img src="{% static 'images/logo.svg'%}" alt="" />
+    <a href="{% url 'create-form' %}">Add project</a>
+    <p>
+      Lorem, ipsum dolor.
+      <img
+        src="{% static 'images/pic3.jpg'%}"
+        alt=""
+        height="200px"
+        width="200px"
+      />
+    </p>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>project</th>
+        <th>positive votes</th>
+        <th>votes</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      {% for project in projects %}
+      <tr>
+        <td>{{project.id}}</td>
+        <td>{{project.title}}</td>
+        <td>{{project.vote_total}}</td>
+        <td>{{project.vote_ratio}}%</td>
+        <td>{{project.created}}</td>
+
+        <td><a href="{% url 'project' project.id %}">View</a></td>
+        <td><a href="{% url 'updateProject' project.id %}">Edit</a></td>
+        <td><a href="{% url 'deleteProject' project.id %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+  {% endblock %}
+</html>
