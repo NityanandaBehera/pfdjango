@@ -1,4 +1,4 @@
-{% extends 'index.html' %} {% block content %}
+{% extends 'main.html' %} {% block content %}
 <form action="" method="POST">
   {% csrf_token %}
   <h1>Are you sure to delete this {{object}}?</h1>
