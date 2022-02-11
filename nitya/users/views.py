@@ -29,10 +29,10 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
-    messages.error(request, 'user is sucessfully logout')
+    messages.info(request, 'user is sucessfully logout')
     return redirect('login')
 
-
+ 
 def registerUser(request):
     page = 'register'
     form = CustomUserCreationForm()
